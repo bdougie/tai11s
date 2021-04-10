@@ -6,9 +6,11 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-  build-and-deploy:
+  deploy-staging:
     name: Install, Build and Deploy
     runs-on: ubuntu-latest
+    environment: 
+      name: staging
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js ${{ env.NODE_VERSION }}
