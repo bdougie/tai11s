@@ -2,13 +2,8 @@ name: 'Deploy'
 on:
   workflow_dispatch: 
   push:
-    branches:
-      - develop
-  schedule:
-    - cron: '*/15 * * * *'
 
 env:
-  NODE_VERSION: '10.x'
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
@@ -32,7 +27,7 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - name: npm run generate
+      - name: npm run build
         run: |
           npm run generate
       - name: Push to pages
